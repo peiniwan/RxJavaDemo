@@ -59,9 +59,10 @@ public class RxFilterActivity extends AppCompatActivity implements View.OnClickL
         Integer[] integers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         Observable.from(integers)
                 .filter(new Func1<Integer, Boolean>() {
+                    //参数是匿名内部类泛型第一个，返回值是匿名内部类泛型第二个
                     @Override
                     public Boolean call(Integer integer) {
-                        return integer % 2 != 0;   //发射出去的是参数1
+                        return integer % 2 != 0;
                     }
                 })
                 .subscribe(new Action1<Integer>() {
